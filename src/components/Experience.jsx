@@ -29,6 +29,7 @@ function Experience({ data, setData }) {
 
   return (
     <>
+      <h2>Experience</h2>
       <button onClick={openExpInputField}>New Experience</button>
       {expInputVisible ? <ExperienceInput onSubmit={addExp} onCancel={() => setExpInputVisible(false)} /> : null}
       <ul>
