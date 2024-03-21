@@ -6,6 +6,4 @@ function Preview() {
   )
 }
 
-Preview.id = "preview"
-
 export default Preview
