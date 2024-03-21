@@ -24,22 +24,10 @@ function Contact({ data, setData }) {
 
   if (status === "submitted") {
     return (
-      <section className="contact">
-        <h2>{firstName + " " + lastName}</h2>
-        <hr />
-        <div className="contact bar">
-          <div className="contact bar item">
-            {email}
-          </div>
-          <div className="contact bar item">
-            {phone}
-          </div>
-          <div className="contact bar last item">
-            https://github.com/0xblur
-          </div>
-        </div>
+      <>
+        <ContactOutput {...data} />
         <button onClick={handleButton}>{btnText}</button>
-      </section>
+      </>
     )
   }
 
@@ -77,6 +65,26 @@ function Contact({ data, setData }) {
       <button onClick={handleButton}>{btnText}</button>
     </>
 
+  )
+}
+
+function ContactOutput({ firstName, lastName, email, phone }) {
+  return (
+    <section className="contact">
+      <h2>{firstName + " " + lastName}</h2>
+      <hr />
+      <div className="contact bar">
+        <div className="contact bar item">
+          {email}
+        </div>
+        <div className="contact bar item">
+          {phone}
+        </div>
+        <div className="contact bar last item">
+          https://github.com/0xblur
+        </div>
+      </div>
+    </section>
   )
 }
 
