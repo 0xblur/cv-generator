@@ -22,6 +22,9 @@ function Education({ data, setData }) {
       <h2>Education</h2>
       <button onClick={() => setEduInputVisible(true)}>Add Education</button>
       {eduInputVisible ? <EducationInput onSubmit={addEducation} onCancel={() => setEduInputVisible(false)} /> : null}
+      {eduList.map((item) => {
+        return <EducationOutput key={item.id} eduObj={item} />
+      })}
     </>
     //TODO: Implement EducationOutput
   )
