@@ -1,4 +1,5 @@
 :root {
+  font-family: 'Times New Roman', Times, serif;
   font-size: 18px;
 }
 
@@ -25,6 +26,14 @@ section.contact {
 .contact.bar {
   display: flex;
   gap: 1rem;
+  margin: 0px;
+}
+
+hr {
+  color: red;
+  border: 1px solid black;
+  width: 500px;
+  margin: 0px;
 }
 
 .contact.bar.item::after {
@@ -33,6 +42,15 @@ section.contact {
 
 .contact.bar.last.item::after {
   content: "";
+}
+
+.fullName {
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0px;
+}
+
+.experience.item {
+  text-align: justify;
 }
 
 button {
