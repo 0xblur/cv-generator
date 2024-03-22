@@ -11,7 +11,6 @@ function App() {
   const [contactData, setContactData] = useState({});
   const [educationData, setEducationData] = useState({});
   const [experienceData, setExperienceData] = useState({});
-  const [previewData, setPreviewData] = useState({});
   const pages = {
     contact: {
       component: Contact,
@@ -37,9 +36,10 @@ function App() {
     preview: {
       component: Preview,
       props: {
-        data: previewData,
-        setData: setPreviewData,
-      }
+        contact: contactData,
+        education: educationData,
+        experience: experienceData
+      },
     },
   }
   const ActivePage = pages[active].component
