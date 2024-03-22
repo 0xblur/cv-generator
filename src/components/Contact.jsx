@@ -1,4 +1,6 @@
 import Input from "./Input.jsx"
+import ContactOutput from "./ContactOutput.jsx"
+
 function Contact({ data, setData }) {
   const firstName = data.firstName || "";
   const setFirstName = (newName) => setData({ ...data, firstName: newName })
@@ -64,27 +66,6 @@ function Contact({ data, setData }) {
       </fieldset>
       <button onClick={handleButton}>{btnText}</button>
     </>
-
-  )
-}
-
-function ContactOutput({ firstName, lastName, email, phone }) {
-  return (
-    <section className="contact">
-      <h2>{firstName + " " + lastName}</h2>
-      <hr />
-      <div className="contact bar">
-        <div className="contact bar item">
-          {email}
-        </div>
-        <div className="contact bar item">
-          {phone}
-        </div>
-        <div className="contact bar last item">
-          https://github.com/0xblur
-        </div>
-      </div>
-    </section>
   )
 }
 
