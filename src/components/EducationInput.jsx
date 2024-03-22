@@ -2,11 +2,16 @@ import { v4 as uuidv4 } from "uuid";
 import { PropTypes } from "prop-types"
 import { useState } from "react";
 
-function EducationInput({ onSubmit, onCancel }) {
-  const [institution, setInstitution] = useState("");
-  const [title, setTitle] = useState("");
-  const [startYear, setStartYear] = useState("");
-  const [endYear, setEndYear] = useState("");
+function EducationInput({ onSubmit, onEdit, onCancel, eduObj }) {
+  const [institution, setInstitution] = useState(eduObj?.institution || "");
+  const [title, setTitle] = useState(eduObj?.title || "");
+  const [startYear, setStartYear] = useState(eduObj?.startYear || "");
+  const [endYear, setEndYear] = useState(eduObj?.endYear || "");
+  const [status, setStatus] = useState("new");
+
+  if (eduObj && status === "new") {
+    setStatus("edit")
+  }
 
   function handleAddBtn() {
     const eduObj = {
@@ -19,6 +24,17 @@ function EducationInput({ onSubmit, onCancel }) {
 
     onSubmit(eduObj);
 
+  }
+
+  function handleEditBtn() {
+    const props = {
+      institution: institution,
+      title: title,
+      startYear: startYear,
+      endYear: endYear,
+      id: eduObj.id
+    }
+    onEdit(props)
   }
 
   function handleCancelBtn() {
@@ -46,8 +62,12 @@ function EducationInput({ onSubmit, onCancel }) {
           <input name="endYear" value={endYear} onChange={e => setEndYear(e.target.value)} />
         </label>
         <div className="buttons">
-          <button onClick={handleAddBtn}>Add</button>
-          <button onClick={handleCancelBtn}>Cancel</button>
+          {status === "new" ? <button onClick={handleAddBtn}>
+            Add
+          </button> : <button onClick={handleEditBtn}>
+            Save
+          </button>}
+          {status === "new" ? <button onClick={handleCancelBtn}>Cancel</button> : null}
         </div>
       </fieldset>
     </div>
